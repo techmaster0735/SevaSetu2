@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - SevaSetu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-cog"></i>
+                <span>SevaSetu Admin Panel</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Admin Panel -->
+    <div class="admin-page">
+        <div class="admin-container">
+            <!-- Sidebar -->
+            <div class="admin-sidebar">
+                <div class="admin-profile">
+                    <div class="avatar">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                    <h3>Admin User</h3>
+                    <p>System Administrator</p>
+                </div>
+                
+                <ul class="admin-menu">
+                    <li class="active">
+                        <a href="#" onclick="showAdminSection('overview')">
+                            <i class="fas fa-chart-bar"></i> 
+                            <span>Analytics</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showAdminSection('volunteers')">
+                            <i class="fas fa-users"></i> 
+                            <span>Volunteers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showAdminSection('ngos')">
+                            <i class="fas fa-building"></i> 
+                            <span>NGOs</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showAdminSection('projects')">
+                            <i class="fas fa-project-diagram"></i> 
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showAdminSection('tasks')">
+                            <i class="fas fa-tasks"></i> 
+                            <span>Tasks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showAdminSection('reports')">
+                            <i class="fas fa-file-alt"></i> 
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showAdminSection('settings')">
+                            <i class="fas fa-cog"></i> 
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="admin-main">
+                <!-- Analytics Overview -->
+                <div id="admin-overview-section" class="admin-section">
+                    <div class="section-header">
+                        <h2>Analytics Overview</h2>
+                        <div class="header-actions">
+                            <select class="filter-select">
+                                <option>Last 30 Days</option>
+                                <option>Last 7 Days</option>
+                                <option>Last 3 Months</option>
+                                <option>Last Year</option>
+                            </select>
+                            <button class="btn btn-small btn-primary">Export Report</button>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-user-friends"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>2,500</h3>
+                                <p>Total Volunteers</p>
+                                <span class="stat-change positive">+125 this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>150</h3>
+                                <p>Registered NGOs</p>
+                                <span class="stat-change positive">+8 this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>500</h3>
+                                <p>Active Projects</p>
+                                <span class="stat-change positive">+25 this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>1,200</h3>
+                                <p>Completed Tasks</p>
+                                <span class="stat-change positive">+180 this month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Charts Section -->
+                    <div class="charts-section">
+                        <div class="chart-container">
+                            <h3>Volunteer Registration Trend</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-line"></i>
+                                <p>Chart showing volunteer registration over time</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>Project Categories</h3>
+                            <div class="chart-placeholder">
+                                <i class="fas fa-chart-pie"></i>
+                                <p>Pie chart showing project distribution by category</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="recent-activity">
+                        <h3>Recent System Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>New Volunteer Registration</h4>
+                                    <p>Priya Sharma joined as a volunteer</p>
+                                    <span class="activity-time">5 minutes ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-building"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>NGO Verification Pending</h4>
+                                    <p>Green Earth Foundation submitted documents</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Project Completed</h4>
+                                    <p>Food Distribution Drive marked as completed</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Volunteers Management -->
+                <div id="admin-volunteers-section" class="admin-section hidden">
+                    <div class="section-header">
+                        <h2>Manage Volunteers</h2>
+                        <div class="header-actions">
+                            <input type="search" placeholder="Search volunteers..." class="search-input">
+                            <select class="filter-select">
+                                <option>All Status</option>
+                                <option>Active</option>
+                                <option>Inactive</option>
+                                <option>Suspended</option>
+                            </select>
+                            <button class="btn btn-small btn-primary">Export List</button>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        <input type="checkbox" id="selectAll">
+                                    </th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Points</th>
+                                    <th>Projects</th>
+                                    <th>Status</th>
+                                    <th>Joined</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <span>Priya Sharma</span>
+                                        </div>
+                                    </td>
+                                    <td>priya@email.com</td>
+                                    <td>2,450</td>
+                                    <td>12</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>Nov 1, 2024</td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                        <button class="btn btn-small btn-danger">Suspend</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <span>Rajesh Kumar</span>
+                                        </div>
+                                    </td>
+                                    <td>rajesh@email.com</td>
+                                    <td>2,100</td>
+                                    <td>8</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>Oct 15, 2024</td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                        <button class="btn btn-small btn-danger">Suspend</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td><input type="checkbox"></td>
+                                    <td>
+                                        <div class="user-info">
+                                            <div class="user-avatar">
+                                                <i class="fas fa-user"></i>
+                                            </div>
+                                            <span>Anita Desai</span>
+                                        </div>
+                                    </td>
+                                    <td>anita@email.com</td>
+                                    <td>1,850</td>
+                                    <td>6</td>
+                                    <td><span class="status inactive">Inactive</span></td>
+                                    <td>Sep 20, 2024</td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                        <button class="btn btn-small btn-success">Activate</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <div class="table-pagination">
+                        <span>Showing 1-10 of 2,500 volunteers</span>
+                        <div class="pagination">
+                            <button class="btn btn-small">&lt;</button>
+                            <button class="btn btn-small active">1</button>
+                            <button class="btn btn-small">2</button>
+                            <button class="btn btn-small">3</button>
+                            <button class="btn btn-small">&gt;</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NGOs Management -->
+                <div id="admin-ngos-section" class="admin-section hidden">
+                    <div class="section-header">
+                        <h2>Manage NGOs</h2>
+                        <div class="header-actions">
+                            <input type="search" placeholder="Search NGOs..." class="search-input">
+                            <select class="filter-select">
+                                <option>All Status</option>
+                                <option>Verified</option>
+                                <option>Pending</option>
+                                <option>Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Organization</th>
+                                    <th>Contact Person</th>
+                                    <th>Email</th>
+                                    <th>Projects</th>
+                                    <th>Status</th>
+                                    <th>Registered</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <div class="org-info">
+                                            <div class="org-avatar">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                            <div>
+                                                <strong>Help India Foundation</strong>
+                                                <small>Education & Healthcare</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Dr. Amit Sharma</td>
+                                    <td>contact@helpindia.org</td>
+                                    <td>15</td>
+                                    <td><span class="status verified">Verified</span></td>
+                                    <td>Oct 1, 2024</td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="org-info">
+                                            <div class="org-avatar">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                            <div>
+                                                <strong>Green Earth NGO</strong>
+                                                <small>Environmental Conservation</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Ms. Kavya Nair</td>
+                                    <td>info@greenearth.org</td>
+                                    <td>8</td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td>Nov 15, 2024</td>
+                                    <td>
+                                        <button class="btn btn-small btn-success">Approve</button>
+                                        <button class="btn btn-small btn-danger">Reject</button>
+                                        <button class="btn btn-small">View Docs</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <div class="org-info">
+                                            <div class="org-avatar">
+                                                <i class="fas fa-building"></i>
+                                            </div>
+                                            <div>
+                                                <strong>Food for All</strong>
+                                                <small>Food Security</small>
+                                            </div>
+                                        </div>
+                                    </td>
+                                    <td>Mr. Vikram Singh</td>
+                                    <td>contact@foodforall.org</td>
+                                    <td>12</td>
+                                    <td><span class="status verified">Verified</span></td>
+                                    <td>Sep 10, 2024</td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <!-- Projects Management -->
+                <div id="admin-projects-section" class="admin-section hidden">
+                    <div class="section-header">
+                        <h2>Project Management</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-small btn-primary">Add New Project</button>
+                            <select class="filter-select">
+                                <option>All Projects</option>
+                                <option>Active</option>
+                                <option>Completed</option>
+                                <option>Pending Approval</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3>Food Distribution Drive</h3>
+                                <span class="project-status pending">Pending Approval</span>
+                            </div>
+                            <p>Distribute meals to homeless individuals in urban areas</p>
+                            <div class="project-meta">
+                                <span><i class="fas fa-building"></i> Help India Foundation</span>
+                                <span><i class="fas fa-users"></i> 25 volunteers</span>
+                                <span><i class="fas fa-calendar"></i> 2 months</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn btn-small btn-success">Approve</button>
+                                <button class="btn btn-small btn-danger">Reject</button>
+                                <button class="btn btn-small btn-outline">View Details</button>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3>Tree Plantation</h3>
+                                <span class="project-status active">Active</span>
+                            </div>
+                            <p>Plant trees in urban areas to improve air quality</p>
+                            <div class="project-meta">
+                                <span><i class="fas fa-building"></i> Green Earth NGO</span>
+                                <span><i class="fas fa-users"></i> 40 volunteers</span>
+                                <span><i class="fas fa-calendar"></i> 3 months</span>
+                            </div>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 65%"></div>
+                                </div>
+                                <span>65% Complete</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn btn-small btn-outline">View Details</button>
+                                <button class="btn btn-small btn-secondary">Edit</button>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3>Digital Literacy Program</h3>
+                                <span class="project-status completed">Completed</span>
+                            </div>
+                            <p>Teach basic computer skills to elderly citizens</p>
+                            <div class="project-meta">
+                                <span><i class="fas fa-building"></i> Tech for Good</span>
+                                <span><i class="fas fa-users"></i> 15 volunteers</span>
+                                <span><i class="fas fa-calendar"></i> 4 months</span>
+                            </div>
+                            <div class="project-impact">
+                                <span><i class="fas fa-check"></i> 200 people trained</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn btn-small btn-outline">View Report</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tasks Management -->
+                <div id="admin-tasks-section" class="admin-section hidden">
+                    <div class="section-header">
+                        <h2>Task Management</h2>
+                        <div class="header-actions">
+                            <select class="filter-select">
+                                <option>All Tasks</option>
+                                <option>Pending</option>
+                                <option>In Progress</option>
+                                <option>Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="tasks-overview">
+                        <div class="task-stats">
+                            <div class="task-stat">
+                                <h3>45</h3>
+                                <p>Pending Tasks</p>
+                            </div>
+                            <div class="task-stat">
+                                <h3>120</h3>
+                                <p>In Progress</p>
+                            </div>
+                            <div class="task-stat">
+                                <h3>1,200</h3>
+                                <p>Completed</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="admin-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Task</th>
+                                    <th>Project</th>
+                                    <th>Assigned To</th>
+                                    <th>Priority</th>
+                                    <th>Status</th>
+                                    <th>Due Date</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Food Distribution Setup</td>
+                                    <td>Food Distribution Drive</td>
+                                    <td>Priya Sharma</td>
+                                    <td><span class="priority high">High</span></td>
+                                    <td><span class="status pending">Pending</span></td>
+                                    <td>Dec 15, 2024</td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tree Planting Coordination</td>
+                                    <td>Tree Plantation</td>
+                                    <td>Rajesh Kumar</td>
+                                    <td><span class="priority medium">Medium</span></td>
+                                    <td><span class="status in-progress">In Progress</span></td>
+                                    <td>Dec 20, 2024</td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Reports Section -->
+                <div id="admin-reports-section" class="admin-section hidden">
+                    <div class="section-header">
+                        <h2>Reports & Analytics</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-small btn-primary">Generate Report</button>
+                        </div>
+                    </div>
+                    
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <h3>Volunteer Report</h3>
+                            <p>Detailed analysis of volunteer activities and engagement</p>
+                            <button class="btn btn-small btn-outline">Generate</button>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <h3>Project Impact Report</h3>
+                            <p>Comprehensive report on project outcomes and impact</p>
+                            <button class="btn btn-small btn-outline">Generate</button>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <h3>Monthly Analytics</h3>
+                            <p>Monthly performance metrics and trends</p>
+                            <button class="btn btn-small btn-outline">Generate</button>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-icon">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <h3>NGO Performance</h3>
+                            <p>Analysis of NGO activities and volunteer engagement</p>
+                            <button class="btn btn-small btn-outline">Generate</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="admin-settings-section" class="admin-section hidden">
+                    <div class="section-header">
+                        <h2>System Settings</h2>
+                    </div>
+                    
+                    <div class="settings-container">
+                        <div class="settings-group">
+                            <h3>General Settings</h3>
+                            <div class="setting-item">
+                                <label>Platform Name</label>
+                                <input type="text" value="SevaSetu">
+                            </div>
+                            <div class="setting-item">
+                                <label>Contact Email</label>
+                                <input type="email" value="admin@sevasetu.org">
+                            </div>
+                            <div class="setting-item">
+                                <label>Maximum Volunteers per Project</label>
+                                <input type="number" value="50">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Points System</h3>
+                            <div class="setting-item">
+                                <label>Points per Task Completion</label>
+                                <input type="number" value="100">
+                            </div>
+                            <div class="setting-item">
+                                <label>Points per Event Participation</label>
+                                <input type="number" value="50">
+                            </div>
+                            <div class="setting-item">
+                                <label>Points per Referral</label>
+                                <input type="number" value="25">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Notification Settings</h3>
+                            <div class="setting-item">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" checked>
+                                    <span>Send welcome emails to new users</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" checked>
+                                    <span>Send task assignment notifications</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-item">
+                                    <input type="checkbox">
+                                    <span>Send weekly digest emails</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-actions">
+                            <button class="btn btn-primary">Save Settings</button>
+                            <button class="btn btn-outline">Reset to Default</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

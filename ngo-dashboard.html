@@ -1,0 +1,702 @@
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NGO Dashboard - SevaSetu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>SevaSetu - NGO</span>
+            </div>
+            <div class="nav-actions">
+                <div class="user-menu">
+                    <button class="user-menu-btn" onclick="toggleUserMenu()">
+                        <i class="fas fa-building"></i>
+                        <span id="ngoName">NGO</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </button>
+                    <div class="user-menu-dropdown hidden">
+                        <a href="#" onclick="showProfile()"><i class="fas fa-building"></i> Organization Profile</a>
+                        <a href="#" onclick="showSettings()"><i class="fas fa-cog"></i> Settings</a>
+                        <a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <div class="dashboard-page">
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <div class="dashboard-sidebar">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 id="profileOrgName">NGO Organization</h3>
+                    <p class="user-badge" id="orgStatus">Verified Organization</p>
+                    <div class="user-stats">
+                        <div class="stat">
+                            <span class="stat-number" id="activeProjects">5</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" id="totalVolunteers">45</span>
+                            <span class="stat-label">Volunteers</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="dashboard-menu">
+                    <li class="active">
+                        <a href="#" onclick="showNGOSection('overview')">
+                            <i class="fas fa-tachometer-alt"></i> 
+                            <span>Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showNGOSection('projects')">
+                            <i class="fas fa-project-diagram"></i> 
+                            <span>My Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showNGOSection('create-project')">
+                            <i class="fas fa-plus"></i> 
+                            <span>Create Project</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showNGOSection('volunteers')">
+                            <i class="fas fa-users"></i> 
+                            <span>Volunteers</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showNGOSection('applications')">
+                            <i class="fas fa-file-alt"></i> 
+                            <span>Applications</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showNGOSection('reports')">
+                            <i class="fas fa-chart-bar"></i> 
+                            <span>Reports</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showNGOSection('messages')">
+                            <i class="fas fa-envelope"></i> 
+                            <span>Messages</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="dashboard-main">
+                <!-- Overview Section -->
+                <div id="ngo-overview-section" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Welcome, <span id="welcomeOrgName">Organization</span>!</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-small btn-primary" onclick="showNGOSection('create-project')">Create New Project</button>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-project-diagram"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="totalProjects">5</h3>
+                                <p>Total Projects</p>
+                                <span class="stat-change positive">+1 this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="activeVolunteers">45</h3>
+                                <p>Active Volunteers</p>
+                                <span class="stat-change positive">+8 this week</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="completedTasks">128</h3>
+                                <p>Completed Tasks</p>
+                                <span class="stat-change positive">+15 this week</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3 id="impactNumber">2,500</h3>
+                                <p>Lives Impacted</p>
+                                <span class="stat-change positive">+200 this month</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="recent-activity">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>New Volunteer Application</h4>
+                                    <p>Priya Sharma applied for Food Distribution Project</p>
+                                    <span class="activity-time">1 hour ago</span>
+                                </div>
+                                <div class="activity-action">
+                                    <button class="btn btn-small">Review</button>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Task Completed</h4>
+                                    <p>Community Health Camp setup completed by volunteers</p>
+                                    <span class="activity-time">3 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-project-diagram"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Project Milestone Reached</h4>
+                                    <p>Tree Plantation Project reached 75% completion</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Project Performance -->
+                    <div class="project-performance">
+                        <h3>Project Performance</h3>
+                        <div class="performance-cards">
+                            <div class="performance-card">
+                                <h4>Food Distribution Drive</h4>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <div class="performance-stats">
+                                    <span>85% Complete</span>
+                                    <span>15 Volunteers</span>
+                                    <span>500 Beneficiaries</span>
+                                </div>
+                            </div>
+                            <div class="performance-card">
+                                <h4>Digital Literacy Program</h4>
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <div class="performance-stats">
+                                    <span>60% Complete</span>
+                                    <span>8 Volunteers</span>
+                                    <span>120 Beneficiaries</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div id="ngo-projects-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>My Projects</h2>
+                        <div class="header-actions">
+                            <select class="filter-select">
+                                <option>All Projects</option>
+                                <option>Active</option>
+                                <option>Completed</option>
+                                <option>Draft</option>
+                            </select>
+                            <button class="btn btn-small btn-primary" onclick="showNGOSection('create-project')">Create New</button>
+                        </div>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card active">
+                            <div class="project-header">
+                                <h3>Food Distribution Drive</h3>
+                                <span class="project-status active">Active</span>
+                            </div>
+                            <p>Distribute meals and essential supplies to homeless individuals and families in need.</p>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 85%"></div>
+                                </div>
+                                <span>85% Complete</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class="fas fa-users"></i> 15 volunteers</span>
+                                <span><i class="fas fa-calendar"></i> 1 month left</span>
+                                <span><i class="fas fa-heart"></i> 500 beneficiaries</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn btn-small btn-outline">Manage</button>
+                                <button class="btn btn-small btn-secondary">View Report</button>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card active">
+                            <div class="project-header">
+                                <h3>Digital Literacy Program</h3>
+                                <span class="project-status active">Active</span>
+                            </div>
+                            <p>Teach basic computer skills to elderly citizens and help them navigate the digital world.</p>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 60%"></div>
+                                </div>
+                                <span>60% Complete</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class="fas fa-users"></i> 8 volunteers</span>
+                                <span><i class="fas fa-calendar"></i> 2 months left</span>
+                                <span><i class="fas fa-heart"></i> 120 beneficiaries</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn btn-small btn-outline">Manage</button>
+                                <button class="btn btn-small btn-secondary">View Report</button>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card completed">
+                            <div class="project-header">
+                                <h3>Community Health Camp</h3>
+                                <span class="project-status completed">Completed</span>
+                            </div>
+                            <p>Free health checkups and medical consultations for underprivileged communities.</p>
+                            <div class="project-impact">
+                                <span><i class="fas fa-check"></i> 300 people served</span>
+                                <span><i class="fas fa-users"></i> 20 volunteers participated</span>
+                            </div>
+                            <div class="project-actions">
+                                <button class="btn btn-small btn-outline">View Report</button>
+                                <button class="btn btn-small btn-secondary">Create Similar</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Create Project Section -->
+                <div id="ngo-create-project-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>Create New Project</h2>
+                    </div>
+                    
+                    <div class="create-project-form">
+                        <form id="createProjectForm">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="projectTitle">Project Title *</label>
+                                    <input type="text" id="projectTitle" name="title" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectCategory">Category *</label>
+                                    <select id="projectCategory" name="category" required>
+                                        <option value="">Select Category</option>
+                                        <option value="education">Education</option>
+                                        <option value="healthcare">Healthcare</option>
+                                        <option value="environment">Environment</option>
+                                        <option value="food-security">Food Security</option>
+                                        <option value="women-empowerment">Women Empowerment</option>
+                                        <option value="child-welfare">Child Welfare</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="projectDescription">Project Description *</label>
+                                <textarea id="projectDescription" name="description" rows="4" required placeholder="Describe your project, its objectives, and expected impact..."></textarea>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="projectLocation">Location *</label>
+                                    <input type="text" id="projectLocation" name="location" required placeholder="City, State">
+                                </div>
+                                <div class="form-group">
+                                    <label for="projectDuration">Duration *</label>
+                                    <select id="projectDuration" name="duration" required>
+                                        <option value="">Select Duration</option>
+                                        <option value="1-month">1 Month</option>
+                                        <option value="3-months">3 Months</option>
+                                        <option value="6-months">6 Months</option>
+                                        <option value="1-year">1 Year</option>
+                                        <option value="ongoing">Ongoing</option>
+                                    </select>
+                                </div>
+                            </div>
+                            
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="volunteersNeeded">Volunteers Needed *</label>
+                                    <input type="number" id="volunteersNeeded" name="volunteersNeeded" required min="1">
+                                </div>
+                                <div class="form-group">
+                                    <label for="expectedBeneficiaries">Expected Beneficiaries</label>
+                                    <input type="number" id="expectedBeneficiaries" name="beneficiaries" min="1">
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="requiredSkills">Required Skills</label>
+                                <div class="checkbox-group">
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="skills" value="teaching">
+                                        <span>Teaching</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="skills" value="healthcare">
+                                        <span>Healthcare</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="skills" value="technology">
+                                        <span>Technology</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="skills" value="marketing">
+                                        <span>Marketing</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="skills" value="coordination">
+                                        <span>Coordination</span>
+                                    </label>
+                                    <label class="checkbox-item">
+                                        <input type="checkbox" name="skills" value="fundraising">
+                                        <span>Fundraising</span>
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="projectRequirements">Additional Requirements</label>
+                                <textarea id="projectRequirements" name="requirements" rows="3" placeholder="Any specific requirements, qualifications, or commitments needed from volunteers..."></textarea>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-outline">Save as Draft</button>
+                                <button type="submit" class="btn btn-primary">Create Project</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Volunteers Section -->
+                <div id="ngo-volunteers-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>Volunteers</h2>
+                        <div class="header-actions">
+                            <input type="search" placeholder="Search volunteers..." class="search-input">
+                            <select class="filter-select">
+                                <option>All Volunteers</option>
+                                <option>Active</option>
+                                <option>New</option>
+                                <option>Top Performers</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="volunteers-grid">
+                        <div class="volunteer-card">
+                            <div class="volunteer-header">
+                                <div class="volunteer-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="volunteer-info">
+                                    <h4>Priya Sharma</h4>
+                                    <p>Education Specialist</p>
+                                    <div class="volunteer-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <span>5.0</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="volunteer-stats">
+                                <div class="stat">
+                                    <span class="stat-number">12</span>
+                                    <span class="stat-label">Tasks</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">45</span>
+                                    <span class="stat-label">Hours</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Projects</span>
+                                </div>
+                            </div>
+                            <div class="volunteer-skills">
+                                <span class="skill-tag">Teaching</span>
+                                <span class="skill-tag">Mentoring</span>
+                            </div>
+                            <div class="volunteer-actions">
+                                <button class="btn btn-small btn-outline">View Profile</button>
+                                <button class="btn btn-small btn-primary">Assign Task</button>
+                            </div>
+                        </div>
+                        
+                        <div class="volunteer-card">
+                            <div class="volunteer-header">
+                                <div class="volunteer-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="volunteer-info">
+                                    <h4>Rajesh Kumar</h4>
+                                    <p>Healthcare Volunteer</p>
+                                    <div class="volunteer-rating">
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star"></i>
+                                        <i class="far fa-star"></i>
+                                        <span>4.5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="volunteer-stats">
+                                <div class="stat">
+                                    <span class="stat-number">8</span>
+                                    <span class="stat-label">Tasks</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">32</span>
+                                    <span class="stat-label">Hours</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="stat-number">2</span>
+                                    <span class="stat-label">Projects</span>
+                                </div>
+                            </div>
+                            <div class="volunteer-skills">
+                                <span class="skill-tag">Healthcare</span>
+                                <span class="skill-tag">First Aid</span>
+                            </div>
+                            <div class="volunteer-actions">
+                                <button class="btn btn-small btn-outline">View Profile</button>
+                                <button class="btn btn-small btn-primary">Assign Task</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Applications Section -->
+                <div id="ngo-applications-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>Volunteer Applications</h2>
+                        <div class="header-actions">
+                            <select class="filter-select">
+                                <option>All Applications</option>
+                                <option>Pending</option>
+                                <option>Approved</option>
+                                <option>Rejected</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="applications-list">
+                        <div class="application-item pending">
+                            <div class="application-info">
+                                <div class="applicant-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="applicant-details">
+                                    <h4>Anita Desai</h4>
+                                    <p>Applied for: Digital Literacy Program</p>
+                                    <div class="applicant-skills">
+                                        <span class="skill-tag">Technology</span>
+                                        <span class="skill-tag">Teaching</span>
+                                    </div>
+                                    <span class="application-date">Applied: 2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="application-actions">
+                                <button class="btn btn-small btn-outline">View Profile</button>
+                                <button class="btn btn-small btn-success" onclick="approveApplication(this)">Approve</button>
+                                <button class="btn btn-small btn-danger" onclick="rejectApplication(this)">Reject</button>
+                            </div>
+                        </div>
+                        
+                        <div class="application-item pending">
+                            <div class="application-info">
+                                <div class="applicant-avatar">
+                                    <i class="fas fa-user"></i>
+                                </div>
+                                <div class="applicant-details">
+                                    <h4>Vikram Singh</h4>
+                                    <p>Applied for: Food Distribution Drive</p>
+                                    <div class="applicant-skills">
+                                        <span class="skill-tag">Coordination</span>
+                                        <span class="skill-tag">Logistics</span>
+                                    </div>
+                                    <span class="application-date">Applied: 5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="application-actions">
+                                <button class="btn btn-small btn-outline">View Profile</button>
+                                <button class="btn btn-small btn-success" onclick="approveApplication(this)">Approve</button>
+                                <button class="btn btn-small btn-danger" onclick="rejectApplication(this)">Reject</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Reports Section -->
+                <div id="ngo-reports-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>Reports & Analytics</h2>
+                        <div class="header-actions">
+                            <select class="filter-select">
+                                <option>Last 30 Days</option>
+                                <option>Last 3 Months</option>
+                                <option>Last Year</option>
+                                <option>All Time</option>
+                            </select>
+                            <button class="btn btn-small btn-primary">Export Report</button>
+                        </div>
+                    </div>
+                    
+                    <div class="reports-grid">
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Impact Summary</h3>
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <div class="report-stats">
+                                <div class="report-stat">
+                                    <span class="stat-number">2,500</span>
+                                    <span class="stat-label">Lives Impacted</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="stat-number">45</span>
+                                    <span class="stat-label">Active Volunteers</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="stat-number">5</span>
+                                    <span class="stat-label">Active Projects</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Volunteer Performance</h3>
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="report-stats">
+                                <div class="report-stat">
+                                    <span class="stat-number">850</span>
+                                    <span class="stat-label">Total Hours</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="stat-number">128</span>
+                                    <span class="stat-label">Tasks Completed</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="stat-number">4.8</span>
+                                    <span class="stat-label">Avg Rating</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="report-card">
+                            <div class="report-header">
+                                <h3>Project Success</h3>
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <div class="report-stats">
+                                <div class="report-stat">
+                                    <span class="stat-number">85%</span>
+                                    <span class="stat-label">Completion Rate</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="stat-number">92%</span>
+                                    <span class="stat-label">Volunteer Satisfaction</span>
+                                </div>
+                                <div class="report-stat">
+                                    <span class="stat-number">3</span>
+                                    <span class="stat-label">Completed Projects</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Section -->
+                <div id="ngo-messages-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>Messages</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-small btn-primary">New Message</button>
+                        </div>
+                    </div>
+                    
+                    <div class="messages-container">
+                        <div class="message-item unread">
+                            <div class="message-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="message-content">
+                                <h4>Priya Sharma</h4>
+                                <p>Thank you for approving my application. When can I start...</p>
+                                <span class="message-time">1 hour ago</span>
+                            </div>
+                            <div class="message-status">
+                                <i class="fas fa-circle"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <i class="fas fa-user-shield"></i>
+                            </div>
+                            <div class="message-content">
+                                <h4>SevaSetu Admin</h4>
+                                <p>Your project "Digital Literacy Program" has been approved...</p>
+                                <span class="message-time">2 days ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="ngo-dashboard.js"></script>
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

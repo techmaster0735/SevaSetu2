@@ -1,0 +1,616 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - SevaSetu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>SevaSetu Dashboard</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Dashboard -->
+    <div class="dashboard-page">
+        <div class="dashboard-container">
+            <!-- Sidebar -->
+            <div class="dashboard-sidebar">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>John Volunteer</h3>
+                    <p class="user-badge">Gold Badge • 2,450 Points</p>
+                    <div class="user-stats">
+                        <div class="stat">
+                            <span class="stat-number">12</span>
+                            <span class="stat-label">Projects</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number">45</span>
+                            <span class="stat-label">Hours</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <ul class="dashboard-menu">
+                    <li class="active">
+                        <a href="#" onclick="showDashboardSection('overview')">
+                            <i class="fas fa-tachometer-alt"></i> 
+                            <span>Overview</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showDashboardSection('tasks')">
+                            <i class="fas fa-tasks"></i> 
+                            <span>My Tasks</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showDashboardSection('projects')">
+                            <i class="fas fa-project-diagram"></i> 
+                            <span>Projects</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showDashboardSection('achievements')">
+                            <i class="fas fa-trophy"></i> 
+                            <span>Achievements</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showDashboardSection('calendar')">
+                            <i class="fas fa-calendar"></i> 
+                            <span>Calendar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showDashboardSection('messages')">
+                            <i class="fas fa-envelope"></i> 
+                            <span>Messages</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" onclick="showDashboardSection('settings')">
+                            <i class="fas fa-cog"></i> 
+                            <span>Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <!-- Main Content -->
+            <div class="dashboard-main">
+                <!-- Overview Section -->
+                <div id="overview-section" class="dashboard-section">
+                    <div class="section-header">
+                        <h2>Dashboard Overview</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-small btn-primary">New Task</button>
+                            <button class="btn btn-small btn-outline">View All</button>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>12</h3>
+                                <p>Completed Tasks</p>
+                                <span class="stat-change positive">+2 this week</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>3</h3>
+                                <p>Pending Tasks</p>
+                                <span class="stat-change">Due soon</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-star"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>2,450</h3>
+                                <p>Total Points</p>
+                                <span class="stat-change positive">+150 this month</span>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-calendar"></i>
+                            </div>
+                            <div class="stat-content">
+                                <h3>45</h3>
+                                <p>Hours Volunteered</p>
+                                <span class="stat-change positive">+8 this week</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Recent Activity -->
+                    <div class="recent-activity">
+                        <h3>Recent Activity</h3>
+                        <div class="activity-list">
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-check-circle"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Completed Food Distribution Drive</h4>
+                                    <p>Helped distribute meals to 50 families</p>
+                                    <span class="activity-time">2 hours ago</span>
+                                </div>
+                                <div class="activity-points">+100 pts</div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Joined Tree Plantation Project</h4>
+                                    <p>Registered for weekend plantation drive</p>
+                                    <span class="activity-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="activity-item">
+                                <div class="activity-icon">
+                                    <i class="fas fa-trophy"></i>
+                                </div>
+                                <div class="activity-content">
+                                    <h4>Earned "Helper" Badge</h4>
+                                    <p>Completed 5 volunteer tasks</p>
+                                    <span class="activity-time">3 days ago</span>
+                                </div>
+                                <div class="activity-badge">
+                                    <i class="fas fa-medal"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Upcoming Events -->
+                    <div class="upcoming-events">
+                        <h3>Upcoming Events</h3>
+                        <div class="events-list">
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">15</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Community Health Camp</h4>
+                                    <p>Free health checkups for underprivileged</p>
+                                    <span class="event-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Mumbai, Maharashtra
+                                    </span>
+                                </div>
+                                <button class="btn btn-small">Join</button>
+                            </div>
+                            <div class="event-item">
+                                <div class="event-date">
+                                    <span class="day">20</span>
+                                    <span class="month">Dec</span>
+                                </div>
+                                <div class="event-content">
+                                    <h4>Winter Clothing Drive</h4>
+                                    <p>Collect and distribute warm clothes</p>
+                                    <span class="event-location">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                        Delhi, India
+                                    </span>
+                                </div>
+                                <button class="btn btn-small">Join</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Tasks Section -->
+                <div id="tasks-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>My Tasks</h2>
+                        <div class="header-actions">
+                            <select class="filter-select">
+                                <option>All Tasks</option>
+                                <option>Pending</option>
+                                <option>In Progress</option>
+                                <option>Completed</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="tasks-container">
+                        <div class="task-category">
+                            <h3>Pending Tasks (3)</h3>
+                            <div class="task-list">
+                                <div class="task-item pending">
+                                    <div class="task-priority high">High</div>
+                                    <div class="task-info">
+                                        <h4>Food Distribution Drive</h4>
+                                        <p>Help distribute meals to homeless individuals in the city center</p>
+                                        <div class="task-meta">
+                                            <span class="task-date">
+                                                <i class="fas fa-calendar"></i>
+                                                Due: Tomorrow
+                                            </span>
+                                            <span class="task-location">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Mumbai Central
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn btn-small btn-primary">Mark Complete</button>
+                                        <button class="btn btn-small btn-outline">View Details</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item pending">
+                                    <div class="task-priority medium">Medium</div>
+                                    <div class="task-info">
+                                        <h4>Tree Plantation Event</h4>
+                                        <p>Plant saplings in the community park as part of green initiative</p>
+                                        <div class="task-meta">
+                                            <span class="task-date">
+                                                <i class="fas fa-calendar"></i>
+                                                Due: This Weekend
+                                            </span>
+                                            <span class="task-location">
+                                                <i class="fas fa-map-marker-alt"></i>
+                                                Sanjay Gandhi Park
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn btn-small btn-primary">Mark Complete</button>
+                                        <button class="btn btn-small btn-outline">View Details</button>
+                                    </div>
+                                </div>
+                                
+                                <div class="task-item pending">
+                                    <div class="task-priority low">Low</div>
+                                    <div class="task-info">
+                                        <h4>Online Tutoring Session</h4>
+                                        <p>Conduct math tutoring for underprivileged students</p>
+                                        <div class="task-meta">
+                                            <span class="task-date">
+                                                <i class="fas fa-calendar"></i>
+                                                Due: Next Week
+                                            </span>
+                                            <span class="task-location">
+                                                <i class="fas fa-laptop"></i>
+                                                Online
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="task-actions">
+                                        <button class="btn btn-small btn-primary">Mark Complete</button>
+                                        <button class="btn btn-small btn-outline">View Details</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-category">
+                            <h3>Completed Tasks (12)</h3>
+                            <div class="task-list">
+                                <div class="task-item completed">
+                                    <div class="task-info">
+                                        <h4>Teaching Session</h4>
+                                        <p>Conducted math class for underprivileged children</p>
+                                        <div class="task-meta">
+                                            <span class="task-date">
+                                                <i class="fas fa-check"></i>
+                                                Completed: Last Week
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="task-points">+100 points</div>
+                                </div>
+                                
+                                <div class="task-item completed">
+                                    <div class="task-info">
+                                        <h4>Blood Donation Camp</h4>
+                                        <p>Organized and participated in blood donation drive</p>
+                                        <div class="task-meta">
+                                            <span class="task-date">
+                                                <i class="fas fa-check"></i>
+                                                Completed: 2 weeks ago
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="task-points">+150 points</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projects Section -->
+                <div id="projects-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>My Projects</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-small btn-primary">Browse Projects</button>
+                        </div>
+                    </div>
+                    
+                    <div class="projects-grid">
+                        <div class="project-card active">
+                            <div class="project-header">
+                                <h3>Education for All</h3>
+                                <span class="project-status active">Active</span>
+                            </div>
+                            <p>Teaching basic literacy and numeracy to children in rural areas</p>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                                <span>75% Complete</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class="fas fa-users"></i> 25 volunteers</span>
+                                <span><i class="fas fa-calendar"></i> 3 months</span>
+                            </div>
+                            <button class="btn btn-small btn-outline">View Details</button>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-header">
+                                <h3>Clean Water Initiative</h3>
+                                <span class="project-status pending">Pending</span>
+                            </div>
+                            <p>Installing water purification systems in remote villages</p>
+                            <div class="project-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 30%"></div>
+                                </div>
+                                <span>30% Complete</span>
+                            </div>
+                            <div class="project-meta">
+                                <span><i class="fas fa-users"></i> 15 volunteers</span>
+                                <span><i class="fas fa-calendar"></i> 6 months</span>
+                            </div>
+                            <button class="btn btn-small btn-outline">View Details</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Achievements Section -->
+                <div id="achievements-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>Achievements & Badges</h2>
+                    </div>
+                    
+                    <div class="achievements-overview">
+                        <div class="achievement-stats">
+                            <div class="achievement-stat">
+                                <h3>8</h3>
+                                <p>Badges Earned</p>
+                            </div>
+                            <div class="achievement-stat">
+                                <h3>2,450</h3>
+                                <p>Total Points</p>
+                            </div>
+                            <div class="achievement-stat">
+                                <h3>Gold</h3>
+                                <p>Current Level</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="badges-section">
+                        <h3>Earned Badges</h3>
+                        <div class="badges-grid">
+                            <div class="badge-item earned">
+                                <div class="badge-icon">
+                                    <i class="fas fa-seedling"></i>
+                                </div>
+                                <h4>Newcomer</h4>
+                                <p>First task completed</p>
+                                <span class="earned-date">Earned: Nov 1, 2024</span>
+                            </div>
+                            <div class="badge-item earned">
+                                <div class="badge-icon">
+                                    <i class="fas fa-graduation-cap"></i>
+                                </div>
+                                <h4>Educator</h4>
+                                <p>Completed 5 teaching tasks</p>
+                                <span class="earned-date">Earned: Nov 15, 2024</span>
+                            </div>
+                            <div class="badge-item earned">
+                                <div class="badge-icon">
+                                    <i class="fas fa-hands-helping"></i>
+                                </div>
+                                <h4>Helper</h4>
+                                <p>Completed 10 volunteer tasks</p>
+                                <span class="earned-date">Earned: Dec 1, 2024</span>
+                            </div>
+                            <div class="badge-item locked">
+                                <div class="badge-icon">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>Superstar</h4>
+                                <p>Complete 25 tasks</p>
+                                <span class="progress">Progress: 12/25</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Calendar Section -->
+                <div id="calendar-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>My Calendar</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-small btn-primary">Add Event</button>
+                        </div>
+                    </div>
+                    
+                    <div class="calendar-container">
+                        <div class="calendar-header">
+                            <button class="calendar-nav">&lt;</button>
+                            <h3>December 2024</h3>
+                            <button class="calendar-nav">&gt;</button>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="calendar-day header">Sun</div>
+                            <div class="calendar-day header">Mon</div>
+                            <div class="calendar-day header">Tue</div>
+                            <div class="calendar-day header">Wed</div>
+                            <div class="calendar-day header">Thu</div>
+                            <div class="calendar-day header">Fri</div>
+                            <div class="calendar-day header">Sat</div>
+                            
+                            <!-- Calendar days would be generated by JavaScript -->
+                            <div class="calendar-day">1</div>
+                            <div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div>
+                            <div class="calendar-day">4</div>
+                            <div class="calendar-day">5</div>
+                            <div class="calendar-day">6</div>
+                            <div class="calendar-day">7</div>
+                            <div class="calendar-day">8</div>
+                            <div class="calendar-day">9</div>
+                            <div class="calendar-day">10</div>
+                            <div class="calendar-day">11</div>
+                            <div class="calendar-day">12</div>
+                            <div class="calendar-day">13</div>
+                            <div class="calendar-day">14</div>
+                            <div class="calendar-day has-event">15</div>
+                            <div class="calendar-day">16</div>
+                            <div class="calendar-day">17</div>
+                            <div class="calendar-day">18</div>
+                            <div class="calendar-day">19</div>
+                            <div class="calendar-day has-event">20</div>
+                            <div class="calendar-day">21</div>
+                            <div class="calendar-day">22</div>
+                            <div class="calendar-day">23</div>
+                            <div class="calendar-day">24</div>
+                            <div class="calendar-day">25</div>
+                            <div class="calendar-day">26</div>
+                            <div class="calendar-day">27</div>
+                            <div class="calendar-day">28</div>
+                            <div class="calendar-day">29</div>
+                            <div class="calendar-day">30</div>
+                            <div class="calendar-day">31</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Messages Section -->
+                <div id="messages-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>Messages</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-small btn-primary">New Message</button>
+                        </div>
+                    </div>
+                    
+                    <div class="messages-container">
+                        <div class="message-item unread">
+                            <div class="message-avatar">
+                                <i class="fas fa-building"></i>
+                            </div>
+                            <div class="message-content">
+                                <h4>Help India Foundation</h4>
+                                <p>Thank you for your participation in the food distribution drive...</p>
+                                <span class="message-time">2 hours ago</span>
+                            </div>
+                            <div class="message-status">
+                                <i class="fas fa-circle"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="message-item">
+                            <div class="message-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="message-content">
+                                <h4>Project Coordinator</h4>
+                                <p>Reminder: Tree plantation event is scheduled for this weekend...</p>
+                                <span class="message-time">1 day ago</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settings Section -->
+                <div id="settings-section" class="dashboard-section hidden">
+                    <div class="section-header">
+                        <h2>Settings</h2>
+                    </div>
+                    
+                    <div class="settings-container">
+                        <div class="settings-group">
+                            <h3>Profile Settings</h3>
+                            <div class="setting-item">
+                                <label>Full Name</label>
+                                <input type="text" value="John Volunteer">
+                            </div>
+                            <div class="setting-item">
+                                <label>Email</label>
+                                <input type="email" value="john@example.com">
+                            </div>
+                            <div class="setting-item">
+                                <label>Phone</label>
+                                <input type="tel" value="+91 98765 43210">
+                            </div>
+                        </div>
+                        
+                        <div class="settings-group">
+                            <h3>Notification Preferences</h3>
+                            <div class="setting-item">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" checked>
+                                    <span>Email notifications for new tasks</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" checked>
+                                    <span>SMS notifications for urgent updates</span>
+                                </label>
+                            </div>
+                            <div class="setting-item">
+                                <label class="checkbox-item">
+                                    <input type="checkbox">
+                                    <span>Weekly newsletter</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="settings-actions">
+                            <button class="btn btn-primary">Save Changes</button>
+                            <button class="btn btn-outline">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

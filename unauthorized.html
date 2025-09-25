@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unauthorized Access - SevaSetu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>SevaSetu</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Go Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Unauthorized Page -->
+    <div class="unauthorized-page">
+        <div class="container">
+            <div class="unauthorized-content">
+                <div class="unauthorized-icon">
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <h1>Access Denied</h1>
+                <p class="unauthorized-message">
+                    You don't have permission to access this page. This area is restricted to specific user roles.
+                </p>
+                
+                <div class="access-info">
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-user-friends"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Volunteer Access</h4>
+                            <p>If you're a volunteer, please use the volunteer dashboard to access your features.</p>
+                            <a href="volunteer-dashboard.html" class="btn btn-small btn-primary">Volunteer Dashboard</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>NGO Access</h4>
+                            <p>If you're an NGO representative, please use the NGO dashboard to manage your organization.</p>
+                            <a href="ngo-dashboard.html" class="btn btn-small btn-primary">NGO Dashboard</a>
+                        </div>
+                    </div>
+                    
+                    <div class="info-card">
+                        <div class="info-icon">
+                            <i class="fas fa-user-shield"></i>
+                        </div>
+                        <div class="info-content">
+                            <h4>Admin Access</h4>
+                            <p>Administrative features are restricted to authorized personnel only.</p>
+                            <a href="admin.html" class="btn btn-small btn-secondary">Admin Panel</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="help-section">
+                    <h3>Need Help?</h3>
+                    <p>If you believe you should have access to this page, please contact our support team.</p>
+                    <div class="help-actions">
+                        <a href="contact.html" class="btn btn-outline">Contact Support</a>
+                        <a href="auth.html" class="btn btn-primary">Login with Different Account</a>
+                    </div>
+                </div>
+                
+                <div class="quick-links">
+                    <h4>Quick Links</h4>
+                    <div class="links-grid">
+                        <a href="index.html" class="quick-link">
+                            <i class="fas fa-home"></i>
+                            <span>Home</span>
+                        </a>
+                        <a href="about.html" class="quick-link">
+                            <i class="fas fa-info-circle"></i>
+                            <span>About</span>
+                        </a>
+                        <a href="awareness.html" class="quick-link">
+                            <i class="fas fa-bullhorn"></i>
+                            <span>Awareness</span>
+                        </a>
+                        <a href="leaderboard.html" class="quick-link">
+                            <i class="fas fa-trophy"></i>
+                            <span>Leaderboard</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function goBack() {
+            // Check if there's a previous page in browser history
+            if (document.referrer && document.referrer !== window.location.href) {
+                window.history.back();
+            } else {
+                // Fallback to home page
+                window.location.href = 'index.html';
+            }
+        }
+
+        // Check user role and provide appropriate suggestions
+        document.addEventListener('DOMContentLoaded', function() {
+            const user = JSON.parse(localStorage.getItem('sevasetu_user') || '{}');
+            
+            if (user.role) {
+                const roleInfo = document.querySelector(`.info-card .info-content h4:contains("${user.role.charAt(0).toUpperCase() + user.role.slice(1)}")`);
+                if (roleInfo) {
+                    roleInfo.parentElement.parentElement.style.border = '2px solid #667eea';
+                    roleInfo.parentElement.parentElement.style.background = '#f8f9ff';
+                }
+            }
+        });
+    </script>
+</body>
+</html>

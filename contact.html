@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact - SevaSetu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>SevaSetu - Contact</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Section -->
+    <section class="contact-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Get in Touch</h1>
+                <p class="subtitle">Join our community and start making a difference today</p>
+            </div>
+
+            <div class="contact-content">
+                <!-- Contact Form -->
+                <div class="contact-form-section">
+                    <h2>Join Our Community</h2>
+                    <form id="contactForm" class="contact-form">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="firstName">First Name *</label>
+                                <input type="text" id="firstName" name="firstName" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="lastName">Last Name *</label>
+                                <input type="text" id="lastName" name="lastName" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email Address *</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="role">I want to join as: *</label>
+                            <select id="role" name="role" required>
+                                <option value="">Select Role</option>
+                                <option value="volunteer">Volunteer</option>
+                                <option value="ngo">NGO Representative</option>
+                                <option value="citizen">Concerned Citizen</option>
+                                <option value="corporate">Corporate Partner</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="interests">Areas of Interest</label>
+                            <div class="checkbox-group">
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interests" value="education">
+                                    <span>Education</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interests" value="healthcare">
+                                    <span>Healthcare</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interests" value="environment">
+                                    <span>Environment</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interests" value="food">
+                                    <span>Food Security</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interests" value="women">
+                                    <span>Women Empowerment</span>
+                                </label>
+                                <label class="checkbox-item">
+                                    <input type="checkbox" name="interests" value="children">
+                                    <span>Child Welfare</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="skills">Skills & Expertise</label>
+                            <input type="text" id="skills" name="skills" placeholder="e.g., Teaching, Medical, Technology, Marketing">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="availability">Availability</label>
+                            <select id="availability" name="availability">
+                                <option value="">Select Availability</option>
+                                <option value="weekends">Weekends Only</option>
+                                <option value="weekdays">Weekdays Only</option>
+                                <option value="evenings">Evenings</option>
+                                <option value="flexible">Flexible</option>
+                                <option value="full-time">Full Time</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="4" placeholder="Tell us about your interests, experience, and how you'd like to contribute to social good..."></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="checkbox-item">
+                                <input type="checkbox" name="newsletter" value="yes">
+                                <span>Subscribe to our newsletter for updates on campaigns and opportunities</span>
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Join SevaSetu</button>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-info-section">
+                    <h2>Contact Information</h2>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Email</h4>
+                                <p>contact@sevasetu.org</p>
+                                <p>support@sevasetu.org</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Phone</h4>
+                                <p>+91 98765 43210</p>
+                                <p>+91 87654 32109</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Address</h4>
+                                <p>SevaSetu Foundation</p>
+                                <p>123 Social Impact Street</p>
+                                <p>Mumbai, Maharashtra 400001</p>
+                                <p>India</p>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="contact-details">
+                                <h4>Office Hours</h4>
+                                <p>Monday - Friday: 9:00 AM - 6:00 PM</p>
+                                <p>Saturday: 10:00 AM - 4:00 PM</p>
+                                <p>Sunday: Closed</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Media -->
+                    <div class="social-media">
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link facebook">
+                                <i class="fab fa-facebook-f"></i>
+                                <span>Facebook</span>
+                            </a>
+                            <a href="#" class="social-link twitter">
+                                <i class="fab fa-twitter"></i>
+                                <span>Twitter</span>
+                            </a>
+                            <a href="#" class="social-link instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Instagram</span>
+                            </a>
+                            <a href="#" class="social-link linkedin">
+                                <i class="fab fa-linkedin-in"></i>
+                                <span>LinkedIn</span>
+                            </a>
+                            <a href="#" class="social-link youtube">
+                                <i class="fab fa-youtube"></i>
+                                <span>YouTube</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="quick-actions">
+                        <h3>Quick Actions</h3>
+                        <div class="action-buttons">
+                            <button class="btn btn-outline" onclick="window.location.href='dashboard.html'">
+                                <i class="fas fa-tachometer-alt"></i>
+                                View Dashboard
+                            </button>
+                            <button class="btn btn-outline" onclick="window.location.href='awareness.html'">
+                                <i class="fas fa-bullhorn"></i>
+                                Browse Campaigns
+                            </button>
+                            <button class="btn btn-outline" onclick="window.location.href='leaderboard.html'">
+                                <i class="fas fa-trophy"></i>
+                                View Leaderboard
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Section -->
+            <div class="faq-section">
+                <h2>Frequently Asked Questions</h2>
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h4>How do I become a volunteer?</h4>
+                        <p>Simply fill out the contact form above, select "Volunteer" as your role, and tell us about your interests and availability. We'll match you with suitable opportunities.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Can my NGO partner with SevaSetu?</h4>
+                        <p>Yes! We welcome NGO partnerships. Select "NGO Representative" in the form and provide details about your organization and projects.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Is there any cost to join?</h4>
+                        <p>No, joining SevaSetu is completely free for volunteers and citizens. We believe in making social impact accessible to everyone.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How are volunteers matched with projects?</h4>
+                        <p>We use your skills, interests, location, and availability to match you with relevant projects and NGOs in your area.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>Can I volunteer remotely?</h4>
+                        <p>Yes! Many of our projects offer remote volunteering opportunities, especially in areas like digital marketing, content creation, and online tutoring.</p>
+                    </div>
+                    <div class="faq-item">
+                        <h4>How do I track my volunteer hours?</h4>
+                        <p>Once you join, you'll have access to a personal dashboard where you can track your volunteer hours, points, and achievements.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Newsletter Signup -->
+            <div class="newsletter-section">
+                <div class="newsletter-content">
+                    <h2>Stay Updated</h2>
+                    <p>Get the latest news about campaigns, volunteer opportunities, and success stories delivered to your inbox.</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email address" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

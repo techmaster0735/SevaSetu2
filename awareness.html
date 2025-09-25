@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Awareness - SevaSetu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>SevaSetu - Awareness</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Awareness Section -->
+    <section class="awareness-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Awareness & Campaigns</h1>
+                <p class="subtitle">Join our ongoing campaigns and help spread awareness about important social causes</p>
+            </div>
+
+            <!-- Featured Campaign -->
+            <div class="featured-campaign">
+                <div class="campaign-content">
+                    <div class="campaign-badge">
+                        <i class="fas fa-star"></i>
+                        <span>Featured Campaign</span>
+                    </div>
+                    <h2>Clean Water for All</h2>
+                    <p>Join our nationwide campaign to provide clean drinking water to rural communities. Every contribution counts towards building sustainable water systems.</p>
+                    <div class="campaign-stats">
+                        <div class="stat">
+                            <strong>₹2,50,000</strong>
+                            <span>Raised</span>
+                        </div>
+                        <div class="stat">
+                            <strong>15</strong>
+                            <span>Villages Covered</span>
+                        </div>
+                        <div class="stat">
+                            <strong>500+</strong>
+                            <span>Volunteers</span>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary">Join Campaign</button>
+                </div>
+                <div class="campaign-image">
+                    <i class="fas fa-tint"></i>
+                </div>
+            </div>
+
+            <!-- Awareness Categories -->
+            <div class="awareness-grid">
+                <div class="awareness-card">
+                    <div class="card-icon">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    <h3>Education for All</h3>
+                    <p>Supporting literacy programs and educational initiatives in underserved communities. Help us bridge the education gap.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-users"></i> 1,200 volunteers</span>
+                        <span><i class="fas fa-school"></i> 50 schools</span>
+                    </div>
+                    <button class="btn btn-small">Learn More</button>
+                </div>
+
+                <div class="awareness-card">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Environmental Conservation</h3>
+                    <p>Join tree plantation drives, clean-up campaigns, and sustainability projects to protect our planet.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-tree"></i> 10,000 trees planted</span>
+                        <span><i class="fas fa-recycle"></i> 500 kg waste recycled</span>
+                    </div>
+                    <button class="btn btn-small">Get Involved</button>
+                </div>
+
+                <div class="awareness-card">
+                    <div class="card-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3>Healthcare Access</h3>
+                    <p>Supporting medical camps, health awareness, and healthcare accessibility programs in rural areas.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-user-md"></i> 200 doctors</span>
+                        <span><i class="fas fa-hospital"></i> 30 camps</span>
+                    </div>
+                    <button class="btn btn-small">Volunteer</button>
+                </div>
+
+                <div class="awareness-card">
+                    <div class="card-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3>Food Security</h3>
+                    <p>Fighting hunger through food distribution, community kitchens, and nutrition programs.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-bowl-food"></i> 50,000 meals served</span>
+                        <span><i class="fas fa-home"></i> 25 kitchens</span>
+                    </div>
+                    <button class="btn btn-small">Contribute</button>
+                </div>
+
+                <div class="awareness-card">
+                    <div class="card-icon">
+                        <i class="fas fa-female"></i>
+                    </div>
+                    <h3>Women Empowerment</h3>
+                    <p>Supporting skill development, entrepreneurship, and leadership programs for women.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-graduation-cap"></i> 800 women trained</span>
+                        <span><i class="fas fa-briefcase"></i> 300 jobs created</span>
+                    </div>
+                    <button class="btn btn-small">Support</button>
+                </div>
+
+                <div class="awareness-card">
+                    <div class="card-icon">
+                        <i class="fas fa-child"></i>
+                    </div>
+                    <h3>Child Welfare</h3>
+                    <p>Protecting children's rights, providing education, and ensuring their safety and well-being.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-child"></i> 2,000 children helped</span>
+                        <span><i class="fas fa-shield-alt"></i> 15 shelters</span>
+                    </div>
+                    <button class="btn btn-small">Help Now</button>
+                </div>
+            </div>
+
+            <!-- Current Campaigns -->
+            <div class="current-campaigns">
+                <h2>Current Active Campaigns</h2>
+                <div class="campaigns-list">
+                    <div class="campaign-item">
+                        <div class="campaign-info">
+                            <div class="campaign-icon">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="campaign-details">
+                                <h4>Digital Literacy Drive</h4>
+                                <p>Teaching digital skills to elderly citizens and rural communities</p>
+                                <div class="campaign-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 65%"></div>
+                                    </div>
+                                    <span>65% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="campaign-actions">
+                            <span class="campaign-date">Ends: Dec 31, 2024</span>
+                            <button class="btn btn-small btn-primary">Join</button>
+                        </div>
+                    </div>
+
+                    <div class="campaign-item">
+                        <div class="campaign-info">
+                            <div class="campaign-icon">
+                                <i class="fas fa-seedling"></i>
+                            </div>
+                            <div class="campaign-details">
+                                <h4>Green City Initiative</h4>
+                                <p>Planting trees and creating green spaces in urban areas</p>
+                                <div class="campaign-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 80%"></div>
+                                    </div>
+                                    <span>80% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="campaign-actions">
+                            <span class="campaign-date">Ends: Jan 15, 2025</span>
+                            <button class="btn btn-small btn-primary">Join</button>
+                        </div>
+                    </div>
+
+                    <div class="campaign-item">
+                        <div class="campaign-info">
+                            <div class="campaign-icon">
+                                <i class="fas fa-hand-holding-heart"></i>
+                            </div>
+                            <div class="campaign-details">
+                                <h4>Winter Relief Program</h4>
+                                <p>Providing warm clothes and shelter to homeless individuals</p>
+                                <div class="campaign-progress">
+                                    <div class="progress-bar">
+                                        <div class="progress-fill" style="width: 45%"></div>
+                                    </div>
+                                    <span>45% Complete</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="campaign-actions">
+                            <span class="campaign-date">Ends: Feb 28, 2025</span>
+                            <button class="btn btn-small btn-primary">Join</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- How to Get Involved -->
+            <div class="get-involved">
+                <h2>How You Can Get Involved</h2>
+                <div class="involvement-options">
+                    <div class="involvement-card">
+                        <i class="fas fa-hands-helping"></i>
+                        <h3>Volunteer</h3>
+                        <p>Dedicate your time and skills to causes you care about</p>
+                        <button class="btn btn-outline">Start Volunteering</button>
+                    </div>
+                    <div class="involvement-card">
+                        <i class="fas fa-donate"></i>
+                        <h3>Donate</h3>
+                        <p>Support campaigns financially to maximize their impact</p>
+                        <button class="btn btn-outline">Make a Donation</button>
+                    </div>
+                    <div class="involvement-card">
+                        <i class="fas fa-share-alt"></i>
+                        <h3>Spread Awareness</h3>
+                        <p>Share campaigns on social media to reach more people</p>
+                        <button class="btn btn-outline">Share Now</button>
+                    </div>
+                    <div class="involvement-card">
+                        <i class="fas fa-lightbulb"></i>
+                        <h3>Start a Campaign</h3>
+                        <p>Create your own awareness campaign for a cause you believe in</p>
+                        <button class="btn btn-outline">Create Campaign</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Success Stories -->
+            <div class="success-stories">
+                <h2>Success Stories</h2>
+                <div class="stories-grid">
+                    <div class="story-card">
+                        <div class="story-image">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h4>Rural School Transformation</h4>
+                        <p>Through our education campaign, we helped transform a rural school in Bihar, providing computers, books, and trained teachers to 200+ students.</p>
+                        <span class="story-impact">Impact: 200 students benefited</span>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-image">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h4>Clean Water Access</h4>
+                        <p>Our water campaign successfully installed 15 hand pumps in remote villages, providing clean drinking water to over 3,000 people.</p>
+                        <span class="story-impact">Impact: 3,000 people served</span>
+                    </div>
+                    <div class="story-card">
+                        <div class="story-image">
+                            <i class="fas fa-tree"></i>
+                        </div>
+                        <h4>Urban Forest Creation</h4>
+                        <p>Volunteers planted 5,000 trees across Mumbai, creating mini-forests that now serve as green lungs for the city.</p>
+                        <span class="story-impact">Impact: 5,000 trees planted</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

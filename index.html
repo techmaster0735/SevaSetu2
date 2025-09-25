@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SevaSetu - Bridging Communities for Social Good</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Welcome Page -->
+    <div id="welcome-page" class="welcome-page">
+        <div class="welcome-container">
+            <div class="logo">
+                <i class="fas fa-hands-helping"></i>
+                <h1>SevaSetu</h1>
+            </div>
+            <h2>Welcome to SevaSetu</h2>
+            <p>Bridging communities for social good</p>
+            <button class="get-started-btn" onclick="showHomepage()">
+                <i class="fas fa-arrow-right"></i>
+                Get Started
+            </button>
+        </div>
+    </div>
+
+    <!-- Main Homepage -->
+    <div id="homepage" class="homepage hidden">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <div class="nav-container">
+                <div class="nav-logo">
+                    <i class="fas fa-hands-helping"></i>
+                    <span>SevaSetu</span>
+                </div>
+                <ul class="nav-menu">
+                    <li><a href="home.html">Home</a></li>
+                    <li><a href="about.html">About</a></li>
+                    <li><a href="awareness.html">Awareness</a></li>
+                    <li><a href="leaderboard.html">Leaderboard</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="#" onclick="showChatSystem()">Messages</a></li>
+                    <li><a href="#" onclick="showEventCalendar()">Events</a></li>
+                    <li><a href="#" onclick="showDonationPortal()">Donate</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Connect. Serve. Transform.</h1>
+                <p>SevaSetu bridges the gap between NGOs, volunteers, and citizens to create meaningful social impact across communities.</p>
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="window.location.href='auth.html'">Join as Volunteer</button>
+                    <button class="btn btn-secondary" onclick="window.location.href='auth.html'">Register NGO</button>
+                    <button class="btn btn-outline" onclick="checkDashboardAccess()">Explore Dashboard</button>
+                </div>
+            </div>
+            <div class="hero-image">
+                <i class="fas fa-users"></i>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats">
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-user-friends"></i>
+                    <h3>2,500+</h3>
+                    <p>Active Volunteers</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-building"></i>
+                    <h3>150+</h3>
+                    <p>Partner NGOs</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-project-diagram"></i>
+                    <h3>500+</h3>
+                    <p>Projects Completed</p>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-heart"></i>
+                    <h3>10,000+</h3>
+                    <p>Lives Impacted</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="about">
+            <div class="container">
+                <h2>About SevaSetu</h2>
+                <div class="about-content">
+                    <div class="about-text">
+                        <h3>What SevaSetu Does</h3>
+                        <p>SevaSetu serves as a digital bridge connecting three vital pillars of social change:</p>
+                        <ul>
+                            <li><strong>NGOs:</strong> Organizations with missions and projects needing support</li>
+                            <li><strong>Volunteers:</strong> Passionate individuals ready to contribute their time and skills</li>
+                            <li><strong>Citizens:</strong> Community members who want to make a difference</li>
+                        </ul>
+                        
+                        <h3>Why It Matters</h3>
+                        <p>In today's world, countless social issues require collective action. SevaSetu eliminates the barriers between those who need help, those who can provide it, and those who want to contribute. By creating a seamless platform for collaboration, we amplify the impact of every good deed and ensure no effort goes unnoticed.</p>
+                    </div>
+                    <div class="about-image">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Awareness Section -->
+        <section id="awareness" class="awareness">
+            <div class="container">
+                <h2>Awareness & Campaigns</h2>
+                <div class="awareness-grid">
+                    <div class="awareness-card">
+                        <div class="card-icon">
+                            <i class="fas fa-graduation-cap"></i>
+                        </div>
+                        <h3>Education for All</h3>
+                        <p>Supporting literacy programs and educational initiatives in underserved communities.</p>
+                        <button class="btn btn-small">Learn More</button>
+                    </div>
+                    <div class="awareness-card">
+                        <div class="card-icon">
+                            <i class="fas fa-leaf"></i>
+                        </div>
+                        <h3>Environmental Conservation</h3>
+                        <p>Join tree plantation drives, clean-up campaigns, and sustainability projects.</p>
+                        <button class="btn btn-small">Get Involved</button>
+                    </div>
+                    <div class="awareness-card">
+                        <div class="card-icon">
+                            <i class="fas fa-heartbeat"></i>
+                        </div>
+                        <h3>Healthcare Access</h3>
+                        <p>Supporting medical camps, health awareness, and healthcare accessibility programs.</p>
+                        <button class="btn btn-small">Volunteer</button>
+                    </div>
+                    <div class="awareness-card">
+                        <div class="card-icon">
+                            <i class="fas fa-utensils"></i>
+                        </div>
+                        <h3>Food Security</h3>
+                        <p>Fighting hunger through food distribution, community kitchens, and nutrition programs.</p>
+                        <button class="btn btn-small">Contribute</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works">
+            <div class="container">
+                <h2>How It Works</h2>
+                <div class="steps">
+                    <div class="step">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Register</h3>
+                        <p>Sign up as a volunteer, NGO, or citizen. Create your profile and specify your interests and skills.</p>
+                    </div>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>Connect</h3>
+                        <p>Browse projects, connect with NGOs, and find opportunities that match your passion and availability.</p>
+                    </div>
+                    <div class="step-arrow">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div class="step">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-hands-helping"></i>
+                        </div>
+                        <h3>Serve</h3>
+                        <p>Participate in projects, track your impact, earn recognition, and make a real difference in communities.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Leaderboard Section -->
+        <section id="leaderboard" class="leaderboard">
+            <div class="container">
+                <h2>Community Leaderboard</h2>
+                <div class="leaderboard-content">
+                    <div class="top-contributors">
+                        <div class="contributor gold">
+                            <div class="badge">
+                                <i class="fas fa-trophy"></i>
+                                <span>Gold</span>
+                            </div>
+                            <h3>Priya Sharma</h3>
+                            <p>2,450 Points</p>
+                            <small>Education & Healthcare</small>
+                        </div>
+                        <div class="contributor silver">
+                            <div class="badge">
+                                <i class="fas fa-medal"></i>
+                                <span>Silver</span>
+                            </div>
+                            <h3>Rajesh Kumar</h3>
+                            <p>2,100 Points</p>
+                            <small>Environmental Projects</small>
+                        </div>
+                        <div class="contributor bronze">
+                            <div class="badge">
+                                <i class="fas fa-award"></i>
+                                <span>Bronze</span>
+                            </div>
+                            <h3>Anita Desai</h3>
+                            <p>1,850 Points</p>
+                            <small>Community Development</small>
+                        </div>
+                    </div>
+                    <div class="points-system">
+                        <h3>Points System</h3>
+                        <ul>
+                            <li>Project Completion: 100 points</li>
+                            <li>Event Participation: 50 points</li>
+                            <li>Skill Sharing: 75 points</li>
+                            <li>Community Referral: 25 points</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact">
+            <div class="container">
+                <h2>Join Our Community</h2>
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="role">I want to join as:</label>
+                                <select id="role" name="role" required>
+                                    <option value="">Select Role</option>
+                                    <option value="volunteer">Volunteer</option>
+                                    <option value="ngo">NGO Representative</option>
+                                    <option value="citizen">Concerned Citizen</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="4" placeholder="Tell us about your interests and how you'd like to contribute..."></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Join SevaSetu</button>
+                        </form>
+                    </div>
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>contact@sevasetu.org</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+91 98765 43210</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Mumbai, Maharashtra, India</span>
+                        </div>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook"></i></a>
+                            <a href="#"><i class="fab fa-twitter"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-section">
+                        <div class="footer-logo">
+                            <i class="fas fa-hands-helping"></i>
+                            <span>SevaSetu</span>
+                        </div>
+                        <p>Bridging communities for social good</p>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Quick Links</h3>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#awareness">Awareness</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>For Organizations</h3>
+                        <ul>
+                            <li><a href="#" onclick="showNGOForm()">Register NGO</a></li>
+                            <li><a href="#" onclick="showAdminPanel()">Admin Panel</a></li>
+                            <li><a href="#">Partnership</a></li>
+                            <li><a href="#">Resources</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-section">
+                        <h3>Support</h3>
+                        <ul>
+                            <li><a href="#">Help Center</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms of Service</a></li>
+                            <li><a href="#">FAQ</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="footer-bottom">
+                    <p>&copy; 2024 SevaSetu. All rights reserved. Made with ❤️ for social good.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+
+    <!-- Dashboard -->
+    <div id="dashboard" class="dashboard hidden">
+        <nav class="dashboard-nav">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>SevaSetu Dashboard</span>
+            </div>
+            <button class="btn btn-outline" onclick="showHomepage()">Back to Home</button>
+        </nav>
+        
+        <div class="dashboard-container">
+            <div class="dashboard-sidebar">
+                <div class="user-profile">
+                    <div class="avatar">
+                        <i class="fas fa-user"></i>
+                    </div>
+                    <h3>John Volunteer</h3>
+                    <p>Gold Badge • 2,450 Points</p>
+                </div>
+                <ul class="dashboard-menu">
+                    <li class="active"><a href="#" onclick="showDashboardSection('overview')"><i class="fas fa-tachometer-alt"></i> Overview</a></li>
+                    <li><a href="#" onclick="showDashboardSection('tasks')"><i class="fas fa-tasks"></i> My Tasks</a></li>
+                    <li><a href="#" onclick="showDashboardSection('projects')"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                    <li><a href="#" onclick="showDashboardSection('achievements')"><i class="fas fa-trophy"></i> Achievements</a></li>
+                </ul>
+            </div>
+            
+            <div class="dashboard-main">
+                <div id="overview-section" class="dashboard-section">
+                    <h2>Dashboard Overview</h2>
+                    <div class="dashboard-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>12</h3>
+                            <p>Completed Tasks</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-clock"></i>
+                            <h3>3</h3>
+                            <p>Pending Tasks</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-star"></i>
+                            <h3>2,450</h3>
+                            <p>Total Points</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-calendar"></i>
+                            <h3>45</h3>
+                            <p>Hours Volunteered</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="tasks-section" class="dashboard-section hidden">
+                    <h2>My Tasks</h2>
+                    <div class="tasks-container">
+                        <div class="task-category">
+                            <h3>Pending Tasks</h3>
+                            <div class="task-list">
+                                <div class="task-item">
+                                    <div class="task-info">
+                                        <h4>Food Distribution Drive</h4>
+                                        <p>Help distribute meals to homeless individuals</p>
+                                        <span class="task-date">Due: Tomorrow</span>
+                                    </div>
+                                    <button class="btn btn-small btn-primary">Mark Complete</button>
+                                </div>
+                                <div class="task-item">
+                                    <div class="task-info">
+                                        <h4>Tree Plantation Event</h4>
+                                        <p>Plant saplings in the community park</p>
+                                        <span class="task-date">Due: This Weekend</span>
+                                    </div>
+                                    <button class="btn btn-small btn-primary">Mark Complete</button>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="task-category">
+                            <h3>Completed Tasks</h3>
+                            <div class="task-list">
+                                <div class="task-item completed">
+                                    <div class="task-info">
+                                        <h4>Teaching Session</h4>
+                                        <p>Conducted math class for underprivileged children</p>
+                                        <span class="task-date">Completed: Last Week</span>
+                                    </div>
+                                    <span class="task-points">+100 points</span>
+                                </div>
+                                <div class="task-item completed">
+                                    <div class="task-info">
+                                        <h4>Blood Donation Camp</h4>
+                                        <p>Organized and participated in blood donation drive</p>
+                                        <span class="task-date">Completed: 2 weeks ago</span>
+                                    </div>
+                                    <span class="task-points">+150 points</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel -->
+    <div id="admin-panel" class="admin-panel hidden">
+        <nav class="dashboard-nav">
+            <div class="nav-logo">
+                <i class="fas fa-cog"></i>
+                <span>Admin Panel</span>
+            </div>
+            <button class="btn btn-outline" onclick="showHomepage()">Back to Home</button>
+        </nav>
+        
+        <div class="admin-container">
+            <div class="admin-sidebar">
+                <ul class="admin-menu">
+                    <li class="active"><a href="#" onclick="showAdminSection('overview')"><i class="fas fa-chart-bar"></i> Analytics</a></li>
+                    <li><a href="#" onclick="showAdminSection('volunteers')"><i class="fas fa-users"></i> Volunteers</a></li>
+                    <li><a href="#" onclick="showAdminSection('ngos')"><i class="fas fa-building"></i> NGOs</a></li>
+                    <li><a href="#" onclick="showAdminSection('projects')"><i class="fas fa-project-diagram"></i> Projects</a></li>
+                </ul>
+            </div>
+            
+            <div class="admin-main">
+                <div id="admin-overview-section" class="admin-section">
+                    <h2>Analytics Overview</h2>
+                    <div class="admin-stats">
+                        <div class="stat-card">
+                            <i class="fas fa-user-friends"></i>
+                            <h3>2,500</h3>
+                            <p>Total Volunteers</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-building"></i>
+                            <h3>150</h3>
+                            <p>Registered NGOs</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-project-diagram"></i>
+                            <h3>500</h3>
+                            <p>Active Projects</p>
+                        </div>
+                        <div class="stat-card">
+                            <i class="fas fa-check-circle"></i>
+                            <h3>1,200</h3>
+                            <p>Completed Tasks</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div id="admin-volunteers-section" class="admin-section hidden">
+                    <h2>Manage Volunteers</h2>
+                    <div class="admin-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Points</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Priya Sharma</td>
+                                    <td>priya@email.com</td>
+                                    <td>2,450</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Rajesh Kumar</td>
+                                    <td>rajesh@email.com</td>
+                                    <td>2,100</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div id="admin-projects-section" class="admin-section hidden">
+                    <h2>Project Management</h2>
+                    <div class="project-actions">
+                        <button class="btn btn-primary">Add New Project</button>
+                        <button class="btn btn-secondary">Bulk Actions</button>
+                    </div>
+                    <div class="admin-table">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>NGO</th>
+                                    <th>Volunteers</th>
+                                    <th>Status</th>
+                                    <th>Actions</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Food Distribution Drive</td>
+                                    <td>Help India Foundation</td>
+                                    <td>25</td>
+                                    <td><span class="status pending">Pending Approval</span></td>
+                                    <td>
+                                        <button class="btn btn-small btn-success">Approve</button>
+                                        <button class="btn btn-small btn-danger">Reject</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Tree Plantation</td>
+                                    <td>Green Earth NGO</td>
+                                    <td>40</td>
+                                    <td><span class="status active">Active</span></td>
+                                    <td>
+                                        <button class="btn btn-small">View</button>
+                                        <button class="btn btn-small btn-secondary">Edit</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modals -->
+    <div id="join-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('join-modal')">&times;</span>
+            <h2>Join as Volunteer</h2>
+            <form>
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Skills</label>
+                    <input type="text" placeholder="e.g., Teaching, Healthcare, Technology">
+                </div>
+                <div class="form-group">
+                    <label>Availability</label>
+                    <select>
+                        <option>Weekends</option>
+                        <option>Weekdays</option>
+                        <option>Flexible</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="ngo-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('ngo-modal')">&times;</span>
+            <h2>Register Your NGO</h2>
+            <form>
+                <div class="form-group">
+                    <label>Organization Name</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Registration Number</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Contact Person</label>
+                    <input type="text" required>
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" required>
+                </div>
+                <div class="form-group">
+                    <label>Focus Areas</label>
+                    <textarea placeholder="Education, Healthcare, Environment, etc."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit for Review</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

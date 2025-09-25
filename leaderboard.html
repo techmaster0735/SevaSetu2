@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leaderboard - SevaSetu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>SevaSetu - Leaderboard</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Leaderboard Section -->
+    <section class="leaderboard-page">
+        <div class="container">
+            <div class="page-header">
+                <h1>Community Leaderboard</h1>
+                <p class="subtitle">Celebrating our top contributors and their amazing impact</p>
+            </div>
+
+            <!-- Filter Options -->
+            <div class="leaderboard-filters">
+                <div class="filter-group">
+                    <label>Time Period:</label>
+                    <select id="timePeriod">
+                        <option value="all">All Time</option>
+                        <option value="month">This Month</option>
+                        <option value="week">This Week</option>
+                        <option value="year">This Year</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Category:</label>
+                    <select id="category">
+                        <option value="all">All Categories</option>
+                        <option value="education">Education</option>
+                        <option value="healthcare">Healthcare</option>
+                        <option value="environment">Environment</option>
+                        <option value="food">Food Security</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label>Type:</label>
+                    <select id="type">
+                        <option value="volunteers">Volunteers</option>
+                        <option value="ngos">NGOs</option>
+                        <option value="projects">Projects</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Top 3 Contributors -->
+            <div class="top-contributors">
+                <div class="podium">
+                    <div class="contributor silver">
+                        <div class="position">2</div>
+                        <div class="avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="badge silver-badge">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3>Rajesh Kumar</h3>
+                        <p class="points">2,100 Points</p>
+                        <p class="specialty">Environmental Projects</p>
+                        <div class="achievements">
+                            <span class="achievement"><i class="fas fa-tree"></i> Tree Planter</span>
+                            <span class="achievement"><i class="fas fa-recycle"></i> Eco Warrior</span>
+                        </div>
+                    </div>
+
+                    <div class="contributor gold">
+                        <div class="position">1</div>
+                        <div class="avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="badge gold-badge">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Priya Sharma</h3>
+                        <p class="points">2,450 Points</p>
+                        <p class="specialty">Education & Healthcare</p>
+                        <div class="achievements">
+                            <span class="achievement"><i class="fas fa-graduation-cap"></i> Teacher</span>
+                            <span class="achievement"><i class="fas fa-heart"></i> Healer</span>
+                            <span class="achievement"><i class="fas fa-star"></i> Leader</span>
+                        </div>
+                    </div>
+
+                    <div class="contributor bronze">
+                        <div class="position">3</div>
+                        <div class="avatar">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <div class="badge bronze-badge">
+                            <i class="fas fa-award"></i>
+                        </div>
+                        <h3>Anita Desai</h3>
+                        <p class="points">1,850 Points</p>
+                        <p class="specialty">Community Development</p>
+                        <div class="achievements">
+                            <span class="achievement"><i class="fas fa-users"></i> Community Builder</span>
+                            <span class="achievement"><i class="fas fa-handshake"></i> Connector</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Full Leaderboard -->
+            <div class="full-leaderboard">
+                <h2>Full Rankings</h2>
+                <div class="leaderboard-table">
+                    <div class="table-header">
+                        <div class="rank">Rank</div>
+                        <div class="user">Volunteer</div>
+                        <div class="points">Points</div>
+                        <div class="projects">Projects</div>
+                        <div class="hours">Hours</div>
+                        <div class="badges">Badges</div>
+                    </div>
+
+                    <div class="leaderboard-row">
+                        <div class="rank">4</div>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <h4>Vikram Singh</h4>
+                                <p>Food Security Specialist</p>
+                            </div>
+                        </div>
+                        <div class="points">1,650</div>
+                        <div class="projects">8</div>
+                        <div class="hours">120</div>
+                        <div class="badges">
+                            <span class="badge-icon" title="Food Hero"><i class="fas fa-utensils"></i></span>
+                            <span class="badge-icon" title="Helper"><i class="fas fa-hands-helping"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-row">
+                        <div class="rank">5</div>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <h4>Meera Patel</h4>
+                                <p>Healthcare Volunteer</p>
+                            </div>
+                        </div>
+                        <div class="points">1,420</div>
+                        <div class="projects">6</div>
+                        <div class="hours">95</div>
+                        <div class="badges">
+                            <span class="badge-icon" title="Health Champion"><i class="fas fa-heartbeat"></i></span>
+                            <span class="badge-icon" title="Caring Heart"><i class="fas fa-heart"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-row">
+                        <div class="rank">6</div>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <h4>Arjun Reddy</h4>
+                                <p>Education Advocate</p>
+                            </div>
+                        </div>
+                        <div class="points">1,280</div>
+                        <div class="projects">7</div>
+                        <div class="hours">85</div>
+                        <div class="badges">
+                            <span class="badge-icon" title="Knowledge Sharer"><i class="fas fa-book"></i></span>
+                            <span class="badge-icon" title="Mentor"><i class="fas fa-graduation-cap"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-row">
+                        <div class="rank">7</div>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <h4>Kavya Nair</h4>
+                                <p>Women Empowerment</p>
+                            </div>
+                        </div>
+                        <div class="points">1,150</div>
+                        <div class="projects">5</div>
+                        <div class="hours">78</div>
+                        <div class="badges">
+                            <span class="badge-icon" title="Empowerment Champion"><i class="fas fa-female"></i></span>
+                            <span class="badge-icon" title="Supporter"><i class="fas fa-hands-helping"></i></span>
+                        </div>
+                    </div>
+
+                    <div class="leaderboard-row">
+                        <div class="rank">8</div>
+                        <div class="user">
+                            <div class="user-avatar">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="user-info">
+                                <h4>Rohit Sharma</h4>
+                                <p>Tech for Good</p>
+                            </div>
+                        </div>
+                        <div class="points">980</div>
+                        <div class="projects">4</div>
+                        <div class="hours">65</div>
+                        <div class="badges">
+                            <span class="badge-icon" title="Tech Innovator"><i class="fas fa-laptop-code"></i></span>
+                            <span class="badge-icon" title="Problem Solver"><i class="fas fa-cog"></i></span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="load-more">
+                    <button class="btn btn-outline">Load More</button>
+                </div>
+            </div>
+
+            <!-- Points System -->
+            <div class="points-system">
+                <h2>Points & Rewards System</h2>
+                <div class="points-grid">
+                    <div class="points-card">
+                        <div class="points-icon">
+                            <i class="fas fa-check-circle"></i>
+                        </div>
+                        <h3>Task Completion</h3>
+                        <p class="points-value">50-200 points</p>
+                        <p>Complete assigned tasks and projects</p>
+                    </div>
+                    <div class="points-card">
+                        <div class="points-icon">
+                            <i class="fas fa-calendar-check"></i>
+                        </div>
+                        <h3>Event Participation</h3>
+                        <p class="points-value">25-100 points</p>
+                        <p>Attend workshops, camps, and events</p>
+                    </div>
+                    <div class="points-card">
+                        <div class="points-icon">
+                            <i class="fas fa-share-alt"></i>
+                        </div>
+                        <h3>Skill Sharing</h3>
+                        <p class="points-value">75-150 points</p>
+                        <p>Teach and mentor other volunteers</p>
+                    </div>
+                    <div class="points-card">
+                        <div class="points-icon">
+                            <i class="fas fa-user-plus"></i>
+                        </div>
+                        <h3>Community Referral</h3>
+                        <p class="points-value">25 points</p>
+                        <p>Invite friends to join SevaSetu</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Badge System -->
+            <div class="badge-system">
+                <h2>Achievement Badges</h2>
+                <div class="badges-grid">
+                    <div class="badge-category">
+                        <h3>Volunteer Badges</h3>
+                        <div class="badge-list">
+                            <div class="badge-item">
+                                <i class="fas fa-seedling"></i>
+                                <span>Newcomer</span>
+                                <small>First task completed</small>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-fire"></i>
+                                <span>Rising Star</span>
+                                <small>5 tasks completed</small>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-star"></i>
+                                <span>Superstar</span>
+                                <small>25 tasks completed</small>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-crown"></i>
+                                <span>Champion</span>
+                                <small>100 tasks completed</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="badge-category">
+                        <h3>Specialty Badges</h3>
+                        <div class="badge-list">
+                            <div class="badge-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Educator</span>
+                                <small>Teaching projects</small>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-heartbeat"></i>
+                                <span>Healer</span>
+                                <small>Healthcare projects</small>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-leaf"></i>
+                                <span>Eco Warrior</span>
+                                <small>Environmental projects</small>
+                            </div>
+                            <div class="badge-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Food Hero</span>
+                                <small>Food security projects</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Monthly Challenges -->
+            <div class="monthly-challenges">
+                <h2>Monthly Challenges</h2>
+                <div class="challenges-grid">
+                    <div class="challenge-card active">
+                        <div class="challenge-header">
+                            <h3>December Challenge</h3>
+                            <span class="challenge-status">Active</span>
+                        </div>
+                        <div class="challenge-goal">
+                            <i class="fas fa-gift"></i>
+                            <p>Spread Holiday Joy</p>
+                        </div>
+                        <div class="challenge-progress">
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 70%"></div>
+                            </div>
+                            <span>70% Complete</span>
+                        </div>
+                        <div class="challenge-reward">
+                            <i class="fas fa-trophy"></i>
+                            <span>Reward: 500 bonus points</span>
+                        </div>
+                    </div>
+                    <div class="challenge-card upcoming">
+                        <div class="challenge-header">
+                            <h3>January Challenge</h3>
+                            <span class="challenge-status">Coming Soon</span>
+                        </div>
+                        <div class="challenge-goal">
+                            <i class="fas fa-heart"></i>
+                            <p>New Year, New Impact</p>
+                        </div>
+                        <div class="challenge-reward">
+                            <i class="fas fa-medal"></i>
+                            <span>Reward: Special badge + 750 points</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authentication - SevaSetu</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-hands-helping"></i>
+                <span>SevaSetu</span>
+            </div>
+            <div class="nav-actions">
+                <button class="btn btn-outline" onclick="goBack()">
+                    <i class="fas fa-arrow-left"></i> Back
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Authentication Container -->
+    <div class="auth-container">
+        <!-- Login Form -->
+        <div id="login-form" class="auth-form">
+            <div class="auth-header">
+                <h2>Welcome Back</h2>
+                <p>Sign in to your SevaSetu account</p>
+            </div>
+            
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="loginEmail">Email Address</label>
+                    <input type="email" id="loginEmail" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="loginPassword">Password</label>
+                    <div class="password-input">
+                        <input type="password" id="loginPassword" name="password" required>
+                        <button type="button" class="password-toggle" onclick="togglePassword('loginPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="form-options">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="remember">
+                        <span>Remember me</span>
+                    </label>
+                    <a href="#" onclick="showForgotPassword()">Forgot Password?</a>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">Sign In</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Don't have an account? 
+                    <a href="#" onclick="showRegisterOptions()">Sign up here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Registration Options -->
+        <div id="register-options" class="auth-form hidden">
+            <div class="auth-header">
+                <h2>Join SevaSetu</h2>
+                <p>Choose how you want to contribute to social good</p>
+            </div>
+            
+            <div class="role-selection">
+                <div class="role-card" onclick="showRegisterForm('volunteer')">
+                    <div class="role-icon">
+                        <i class="fas fa-user-friends"></i>
+                    </div>
+                    <h3>Volunteer</h3>
+                    <p>Join as a volunteer to participate in projects and make a difference</p>
+                    <ul>
+                        <li>Browse and join projects</li>
+                        <li>Track volunteer hours</li>
+                        <li>Earn badges and points</li>
+                        <li>Connect with NGOs</li>
+                    </ul>
+                </div>
+                
+                <div class="role-card" onclick="showRegisterForm('ngo')">
+                    <div class="role-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>NGO</h3>
+                    <p>Register your organization to create projects and manage volunteers</p>
+                    <ul>
+                        <li>Create and manage projects</li>
+                        <li>Recruit volunteers</li>
+                        <li>Track project progress</li>
+                        <li>Generate impact reports</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="auth-footer">
+                <p>Already have an account? 
+                    <a href="#" onclick="showLogin()">Sign in here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Volunteer Registration Form -->
+        <div id="volunteer-register-form" class="auth-form hidden">
+            <div class="auth-header">
+                <h2>Volunteer Registration</h2>
+                <p>Join our community of changemakers</p>
+            </div>
+            
+            <form id="volunteerRegisterForm">
+                <input type="hidden" name="role" value="volunteer">
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="volFirstName">First Name *</label>
+                        <input type="text" id="volFirstName" name="firstName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="volLastName">Last Name *</label>
+                        <input type="text" id="volLastName" name="lastName" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="volEmail">Email Address *</label>
+                    <input type="email" id="volEmail" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="volPhone">Phone Number *</label>
+                    <input type="tel" id="volPhone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="volPassword">Password *</label>
+                    <div class="password-input">
+                        <input type="password" id="volPassword" name="password" required minlength="8">
+                        <button type="button" class="password-toggle" onclick="togglePassword('volPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <small>Minimum 8 characters</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="volConfirmPassword">Confirm Password *</label>
+                    <input type="password" id="volConfirmPassword" name="confirmPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="volSkills">Skills & Interests</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skills" value="education">
+                            <span>Education</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skills" value="healthcare">
+                            <span>Healthcare</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skills" value="environment">
+                            <span>Environment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skills" value="technology">
+                            <span>Technology</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skills" value="marketing">
+                            <span>Marketing</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="skills" value="fundraising">
+                            <span>Fundraising</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="volAvailability">Availability</label>
+                    <select id="volAvailability" name="availability">
+                        <option value="">Select Availability</option>
+                        <option value="weekends">Weekends Only</option>
+                        <option value="weekdays">Weekdays Only</option>
+                        <option value="evenings">Evenings</option>
+                        <option value="flexible">Flexible</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="terms" required>
+                        <span>I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a></span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">Register as Volunteer</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Want to register as NGO? 
+                    <a href="#" onclick="showRegisterForm('ngo')">Click here</a>
+                </p>
+                <p>Already have an account? 
+                    <a href="#" onclick="showLogin()">Sign in here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- NGO Registration Form -->
+        <div id="ngo-register-form" class="auth-form hidden">
+            <div class="auth-header">
+                <h2>NGO Registration</h2>
+                <p>Register your organization to create impact</p>
+            </div>
+            
+            <form id="ngoRegisterForm">
+                <input type="hidden" name="role" value="ngo">
+                
+                <div class="form-group">
+                    <label for="ngoName">Organization Name *</label>
+                    <input type="text" id="ngoName" name="organizationName" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoRegNumber">Registration Number *</label>
+                    <input type="text" id="ngoRegNumber" name="registrationNumber" required>
+                </div>
+                
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="ngoContactPerson">Contact Person *</label>
+                        <input type="text" id="ngoContactPerson" name="contactPerson" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="ngoDesignation">Designation *</label>
+                        <input type="text" id="ngoDesignation" name="designation" required>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoEmail">Official Email *</label>
+                    <input type="email" id="ngoEmail" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoPhone">Phone Number *</label>
+                    <input type="tel" id="ngoPhone" name="phone" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoWebsite">Website</label>
+                    <input type="url" id="ngoWebsite" name="website" placeholder="https://www.example.org">
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoAddress">Address *</label>
+                    <textarea id="ngoAddress" name="address" rows="3" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoFocusAreas">Focus Areas *</label>
+                    <div class="checkbox-group">
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="focusAreas" value="education" required>
+                            <span>Education</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="focusAreas" value="healthcare">
+                            <span>Healthcare</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="focusAreas" value="environment">
+                            <span>Environment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="focusAreas" value="women-empowerment">
+                            <span>Women Empowerment</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="focusAreas" value="child-welfare">
+                            <span>Child Welfare</span>
+                        </label>
+                        <label class="checkbox-item">
+                            <input type="checkbox" name="focusAreas" value="poverty-alleviation">
+                            <span>Poverty Alleviation</span>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoDescription">Organization Description *</label>
+                    <textarea id="ngoDescription" name="description" rows="4" required placeholder="Describe your organization's mission, vision, and activities..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoPassword">Password *</label>
+                    <div class="password-input">
+                        <input type="password" id="ngoPassword" name="password" required minlength="8">
+                        <button type="button" class="password-toggle" onclick="togglePassword('ngoPassword')">
+                            <i class="fas fa-eye"></i>
+                        </button>
+                    </div>
+                    <small>Minimum 8 characters</small>
+                </div>
+                
+                <div class="form-group">
+                    <label for="ngoConfirmPassword">Confirm Password *</label>
+                    <input type="password" id="ngoConfirmPassword" name="confirmPassword" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="terms" required>
+                        <span>I agree to the <a href="#" target="_blank">Terms of Service</a> and <a href="#" target="_blank">Privacy Policy</a></span>
+                    </label>
+                </div>
+                
+                <div class="form-group">
+                    <label class="checkbox-item">
+                        <input type="checkbox" name="verification" required>
+                        <span>I certify that all information provided is accurate and I have the authority to register this organization</span>
+                    </label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">Register NGO</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Want to register as Volunteer? 
+                    <a href="#" onclick="showRegisterForm('volunteer')">Click here</a>
+                </p>
+                <p>Already have an account? 
+                    <a href="#" onclick="showLogin()">Sign in here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- OTP Verification Form -->
+        <div id="otp-verification-form" class="auth-form hidden">
+            <div class="auth-header">
+                <h2>Verify Your Email</h2>
+                <p>We've sent a 6-digit code to <span id="otpEmail"></span></p>
+            </div>
+            
+            <form id="otpForm">
+                <div class="otp-input-group">
+                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 0)">
+                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 1)">
+                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 2)">
+                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 3)">
+                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 4)">
+                    <input type="text" class="otp-input" maxlength="1" oninput="moveToNext(this, 5)">
+                </div>
+                
+                <div class="otp-timer">
+                    <p>Code expires in <span id="otpTimer">05:00</span></p>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">Verify Email</button>
+                
+                <div class="resend-otp">
+                    <p>Didn't receive the code? 
+                        <a href="#" id="resendOtpLink" onclick="resendOTP()">Resend OTP</a>
+                    </p>
+                </div>
+            </form>
+        </div>
+
+        <!-- Forgot Password Form -->
+        <div id="forgot-password-form" class="auth-form hidden">
+            <div class="auth-header">
+                <h2>Reset Password</h2>
+                <p>Enter your email to receive a password reset link</p>
+            </div>
+            
+            <form id="forgotPasswordForm">
+                <div class="form-group">
+                    <label for="forgotEmail">Email Address</label>
+                    <input type="email" id="forgotEmail" name="email" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary btn-full">Send Reset Link</button>
+            </form>
+            
+            <div class="auth-footer">
+                <p>Remember your password? 
+                    <a href="#" onclick="showLogin()">Sign in here</a>
+                </p>
+            </div>
+        </div>
+
+        <!-- Success Message -->
+        <div id="success-message" class="auth-form hidden">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <div class="auth-header">
+                <h2>Registration Successful!</h2>
+                <p id="successText">Welcome to SevaSetu community</p>
+            </div>
+            
+            <button class="btn btn-primary btn-full" onclick="redirectToDashboard()">
+                Continue to Dashboard
+            </button>
+        </div>
+    </div>
+
+    <script src="auth.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
